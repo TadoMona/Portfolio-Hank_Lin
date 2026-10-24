@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>我的模型作品集 | Model Collection</title>
+  <title>我的模型收藏 | Figure Collection</title>
+  <link rel="icon" href="images/icon.png" type="image/png">
   <meta
     name="description"
     content="記錄模型收藏、展示櫃佈置與模型開箱心得的個人作品集。"
@@ -13,7 +14,6 @@
   <meta name="theme-color" content="#ffffff">
 
   <style>
-    /* ===== 1. 全站基本設定 ===== */
     :root {
       --bg: #ffffff;
       --surface: #f7f8fa;
@@ -73,7 +73,6 @@
       margin-inline: auto;
     }
 
-    /* ===== 2. 頂部導覽列 ===== */
     .navbar {
       position: sticky;
       top: 0;
@@ -110,7 +109,6 @@
       color: #000;
     }
 
-    /* ===== 3. 個人介紹 ===== */
     .hero {
       padding: 64px 0 34px;
       text-align: center;
@@ -160,7 +158,6 @@
       color: var(--accent);
     }
 
-    /* ===== 4. 圖片輪播 ===== */
     .gallery-section {
       padding: 20px 0 72px;
     }
@@ -225,9 +222,9 @@
       padding: 0;
       place-items: center;
       transform: translateY(-50%);
-      border: 1px solid rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.5);
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.5);
       color: #222;
       font-size: 23px;
       cursor: pointer;
@@ -285,7 +282,6 @@
       font-variant-numeric: tabular-nums;
     }
 
-    /* ===== 5. 區塊標題 ===== */
     .section {
       padding: 56px 0 76px;
     }
@@ -320,7 +316,6 @@
       font-size: 13px;
     }
 
-    /* ===== 6. 文章作品卡片 ===== */
     .works-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -428,7 +423,6 @@
       font-size: 14px;
     }
 
-    /* ===== 7. 關於我 ===== */
     .about-section {
       background: var(--surface);
     }
@@ -450,7 +444,18 @@
       font-size: 15px;
     }
 
-    /* ===== 8. 頁尾 ===== */
+    .round-img {
+      width: 150px;
+      height: 150px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: -5px;
+      margin-bottom: 20px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
     .footer {
       padding: 30px 0;
       border-top: 1px solid var(--border);
@@ -471,7 +476,6 @@
       text-underline-offset: 3px;
     }
 
-    /* ===== 9. 手機版響應式排版 ===== */
     @media (max-width: 640px) {
       .container {
         width: calc(100% - 28px);
@@ -565,19 +569,7 @@
         align-items: flex-start;
       }
     }
-    .round-img {
-      width: 150px;
-      height: 150px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: -5px;
-      margin-bottom: 20px;
-      object-fit: cover;
-      border-radius: 50%;
-    }
 
-    /* 尊重使用者減少動畫的偏好 */
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -591,7 +583,6 @@
 
 <body>
 
-  <!-- ===== 導覽列 ===== -->
   <header class="navbar">
     <div class="container nav-inner">
       <a class="brand" href="#home">MY PORTFOLIO</a>
@@ -605,7 +596,7 @@
   </header>
 
   <main>
-    <!-- ===== 個人介紹 ===== -->
+
     <section class="hero container" id="home">
       <p class="eyebrow">MY COLLECTION</p>
 
@@ -617,7 +608,6 @@
 
     </section>
 
-    <!-- ===== 五張圖片輪播 ===== -->
     <section class="gallery-section container" id="gallery">
       <div
         class="carousel"
@@ -627,7 +617,6 @@
         aria-roledescription="輪播"
       >
         <div class="carousel-track" id="carouselTrack">
-          <!-- 由 JavaScript 自動產生五張圖片 -->
         </div>
 
         <button
@@ -658,8 +647,6 @@
       </div>
     </section>
 
-    
-    <!-- ===== 六篇巴哈姆特嵌入文章 ===== -->
     <section class="section container" id="works">
       <div class="section-heading">
         <div>
@@ -672,12 +659,9 @@
       </div>
 
       <div class="works-grid" id="worksGrid">
-        <!-- 六篇文章由 JavaScript 自動產生 -->
       </div>
     </section>
 
-
-    <!-- ===== 關於我 ===== -->
     <section class="section about-section" id="about">
       <div class="container about-content">
         <p class="eyebrow">ABOUT ME</p>
@@ -695,7 +679,6 @@
     </section>
   </main>
 
-  <!-- ===== 頁尾 ===== -->
   <footer class="footer">
     <div class="container footer-inner">
       <span>
@@ -713,13 +696,6 @@
   </footer>
 
   <script>
-    
-    /* =========================================
-       A. 輪播圖片設定
-       將五張圖片放進 images 資料夾。
-       圖片路徑與檔名必須完全一致。
-       ========================================= */
-
     const slides = [
       {
         image: "images/banner-01.jpg",
@@ -737,14 +713,6 @@
         image: "images/banner-05.jpg",
       }
     ];
-
-    /* =========================================
-       B. 巴哈姆特文章設定
-       請將 title、description、url 改成實際資料。
-
-       cover 可以填入文章封面圖片路徑。
-       若暫時沒有封面，請保留空字串 ""。
-       ========================================= */
 
     const articles = [
       {
@@ -785,10 +753,6 @@
       }
     ];
 
-    /* =========================================
-       C. 產生輪播 HTML
-       ========================================= */
-
     const track = document.getElementById("carouselTrack");
     const dotsContainer = document.getElementById("carouselDots");
     const counter = document.getElementById("slideCounter");
@@ -817,7 +781,6 @@
       img.loading = index === 0 ? "eager" : "lazy";
       img.decoding = "async";
 
-      // 圖片尚未放入專案時，隱藏破圖圖示。
       img.addEventListener("error", () => {
         img.style.display = "none";
       });
@@ -911,7 +874,6 @@
       startAutoplay();
     }
 
-    // 游標停在輪播上時暫停，方便仔細欣賞照片。
     carousel.addEventListener("mouseenter", stopAutoplay);
     carousel.addEventListener("mouseleave", startAutoplay);
     carousel.addEventListener("focusin", stopAutoplay);
@@ -931,10 +893,6 @@
 
     showSlide(0);
     startAutoplay();
-
-    /* =========================================
-       D. 產生文章卡片
-       ========================================= */
 
     const worksGrid = document.getElementById("worksGrid");
 
@@ -974,7 +932,9 @@
 
       const title = document.createElement("h3");
       title.className = "work-title";
+      title.style.color = "#288a9d";
       title.textContent = article.title;
+      
 
       const description = document.createElement("p");
       description.className = "work-description";
@@ -995,10 +955,6 @@
       card.append(cover, body);
       worksGrid.appendChild(card);
     });
-
-    /* =========================================
-       E. 自動更新頁尾年份
-       =========================================*/
 
     document.getElementById("currentYear").textContent =
       new Date().getFullYear(); 
