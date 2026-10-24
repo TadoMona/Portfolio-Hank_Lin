@@ -194,7 +194,7 @@
       object-fit: cover;
     }
 
-    .slide::after {
+    /*.slide::after {
       position: absolute;
       inset: 45% 0 0;
       content: "";
@@ -203,7 +203,7 @@
         rgba(0, 0, 0, 0.62)
       );
       pointer-events: none;
-    }
+    }*/
 
     .slide-caption {
       position: absolute;
@@ -584,6 +584,40 @@
         transition-duration: 0.01ms !important;
       }
     }
+
+    
+  /* ===== 巴哈姆特文章嵌入 ===== */
+
+  .work-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: #fff;
+  }
+
+  .work-embed-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
+
+  .work-embed {
+    display: block;
+    width: 100%;
+    height: 657px;
+    border: 0;
+    background: #fff;
+  }
+
+  @media (max-width: 640px) {
+    .work-embed {
+      height: 657px;
+    }
+  }
+
   </style>
 </head>
 
@@ -592,7 +626,7 @@
   <!-- ===== 導覽列 ===== -->
   <header class="navbar">
     <div class="container nav-inner">
-      <a class="brand" href="#home">MY MODEL PORTFOLIO</a>
+      <a class="brand" href="#home">MY PORTFOLIO</a>
 
       <nav class="nav-links" aria-label="主要導覽">
         <a href="#gallery">收藏展示</a>
@@ -660,24 +694,26 @@
       </div>
     </section>
 
-    <!-- ===== 五篇巴哈姆特文章 ===== -->
-    <section class="section container" id="works">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">ARTICLES & REVIEWS</p>
-          <h2>開箱與收藏紀錄</h2>
-          <p class="section-subtitle">
-            每一篇文章，都是收藏過程中的一份紀錄。
-          </p>
-        </div>
-
-        <span class="work-count">SELECTED WORKS / 05</span>
+    
+  <!-- ===== 六篇巴哈姆特嵌入文章 ===== -->
+  <section class="section container" id="works">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">ARTICLES & REVIEWS</p>
+        <h2>開箱與收藏紀錄</h2>
+        <p class="section-subtitle">
+          模型收藏、開箱與心得分享。
+        </p>
       </div>
 
-      <div class="works-grid" id="worksGrid">
-        <!-- 由 JavaScript 自動產生五篇文章卡片 -->
-      </div>
-    </section>
+      <span class="work-count">SELECTED WORKS / 06</span>
+    </div>
+
+    <div class="works-grid" id="worksGrid">
+      <!-- 六篇文章由 JavaScript 自動產生 -->
+    </div>
+  </section>
+
 
     <!-- ===== 關於我 ===== -->
     <section class="section about-section" id="about">
@@ -722,76 +758,61 @@
     const slides = [
       {
         image: "images/banner-01.jpg",
-        title: "我的模型收藏",
-        subtitle: "MY COLLECTION"
+        /*title: "我的模型收藏",
+        subtitle: "MY COLLECTION"*/
       },
       {
         image: "images/banner-02.jpg",
-        title: "細節與質感",
-        subtitle: "DETAILS & CRAFTSMANSHIP"
+        /*title: "細節與質感",
+        subtitle: "DETAILS & CRAFTSMANSHIP"*/
       },
       {
         image: "images/banner-03.jpg",
-        title: "展示櫃的風景",
-        subtitle: "MY DISPLAY SPACE"
+        /*title: "展示櫃的風景",
+        subtitle: "MY DISPLAY SPACE"*/
       },
       {
         image: "images/banner-04.jpg",
-        title: "喜愛的模型作品",
-        subtitle: "FAVORITE MODELS"
+        /*title: "喜愛的模型作品",
+        subtitle: "FAVORITE MODELS"*/
       },
       {
         image: "images/banner-05.jpg",
-        title: "收藏的每個瞬間",
-        subtitle: "MOMENTS OF JOY"
+        /*title: "收藏的每個瞬間",
+        subtitle: "MOMENTS OF JOY"*/
       }
     ];
 
-    /* =========================================
-       B. 巴哈姆特文章設定
-       請將 title、description、url 改成實際資料。
+    
+  /* ===== 六篇巴哈姆特文章網址 ===== */
 
-       cover 可以填入文章封面圖片路徑。
-       若暫時沒有封面，請保留空字串 ""。
-       ========================================= */
+  const articles = [
+    {
+      title: "文章 01",
+      url: "https://forum.gamer.com.tw/embed.php?bsn=60036&sn=328721"
+    },
+    {
+      title: "文章 02",
+      url: "https://forum.gamer.com.tw/embed.php?bsn=60036&sn=328721"
+    },
+    {
+      title: "文章 03",
+      url: "https://forum.gamer.com.tw/embed.php?bsn=60036&sn=328721"
+    },
+    {
+      title: "文章 04",
+      url: "https://forum.gamer.com.tw/embed.php?bsn=60036&sn=328721"
+    },
+    {
+      title: "文章 05",
+      url: "https://forum.gamer.com.tw/embed.php?bsn=60036&sn=328721"
+    },
+    {
+      title: "文章 06",
+      url: "https://forum.gamer.com.tw/embed.php?bsn=60036&sn=328721"
+    }
+  ];
 
-    const articles = [
-      {
-        title: "作品一：請填入文章標題",
-        description: "在這裡介紹這篇模型開箱的特色與收藏心得。",
-        url: "https://forum.gamer.com.tw/",
-        cover: "",
-        category: "MODEL REVIEW"
-      },
-      {
-        title: "作品二：請填入文章標題",
-        description: "簡單描述這件模型的外觀、特色或開箱內容。",
-        url: "https://forum.gamer.com.tw/",
-        cover: "",
-        category: "UNBOXING"
-      },
-      {
-        title: "作品三：請填入文章標題",
-        description: "分享這篇文章最值得讀者欣賞的內容。",
-        url: "https://forum.gamer.com.tw/",
-        cover: "",
-        category: "COLLECTION"
-      },
-      {
-        title: "作品四：請填入文章標題",
-        description: "介紹模型本身，以及收藏它的原因。",
-        url: "https://forum.gamer.com.tw/",
-        cover: "",
-        category: "MODEL REVIEW"
-      },
-      {
-        title: "作品五：請填入文章標題",
-        description: "用一小段文字，帶讀者認識你的作品。",
-        url: "https://forum.gamer.com.tw/",
-        cover: "",
-        category: "UNBOXING"
-      }
-    ];
 
     /* =========================================
        C. 產生輪播 HTML
@@ -940,9 +961,8 @@
     showSlide(0);
     startAutoplay();
 
-    /* =========================================
-       D. 產生文章卡片
-       ========================================= */
+    
+    /* ===== D. 產生六篇巴哈姆特嵌入文章 ===== */
 
     const worksGrid = document.getElementById("worksGrid");
 
@@ -950,62 +970,24 @@
       const card = document.createElement("article");
       card.className = "work-card";
 
-      const cover = document.createElement("div");
-      cover.className = "work-cover";
+      const header = document.createElement("div");
+      header.className = "work-embed-header";
+      header.textContent =
+        `MODEL COLLECTION / ${String(index + 1).padStart(2, "0")}`;
 
-      const placeholder = document.createElement("span");
-      placeholder.className = "cover-placeholder";
-      placeholder.textContent = `WORK / ${String(index + 1).padStart(2, "0")}`;
-      cover.appendChild(placeholder);
+      const iframe = document.createElement("iframe");
+      iframe.className = "work-embed";
+      iframe.src = article.url;
+      iframe.title = article.title;
+      iframe.loading = index < 2 ? "eager" : "lazy";
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allowtransparency", "true");
+      iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
 
-      if (article.cover) {
-        const img = document.createElement("img");
-        img.src = article.cover;
-        img.alt = "";
-        img.loading = "lazy";
-        img.decoding = "async";
-
-        img.addEventListener("load", () => {
-          placeholder.style.display = "none";
-        });
-
-        img.addEventListener("error", () => {
-          img.remove();
-        });
-
-        cover.appendChild(img);
-      }
-
-      const body = document.createElement("div");
-      body.className = "work-body";
-
-      const category = document.createElement("p");
-      category.className = "work-category";
-      category.textContent = article.category;
-
-      const title = document.createElement("h3");
-      title.className = "work-title";
-      title.textContent = article.title;
-
-      const description = document.createElement("p");
-      description.className = "work-description";
-      description.textContent = article.description;
-
-      const link = document.createElement("a");
-      link.className = "work-link";
-      link.href = article.url;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.textContent = "閱讀完整文章 ↗";
-      link.setAttribute(
-        "aria-label",
-        `閱讀文章：${article.title}（另開新視窗）`
-      );
-
-      body.append(category, title, description, link);
-      card.append(cover, body);
+      card.append(header, iframe);
       worksGrid.appendChild(card);
     });
+
 
     /* =========================================
        E. 自動更新頁尾年份
